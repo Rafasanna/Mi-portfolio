@@ -14,41 +14,41 @@ const contactActions: Array<{
   label: string;
   href: string;
   icon: LucideIcon;
-  variant: "light" | "secondary";
+  variant: "darkSection" | "social";
   external?: boolean;
 }> = [
   {
-    label: "Escribirme por WhatsApp",
+    label: "WhatsApp",
     href: contact.whatsapp,
     icon: MessageCircle,
-    variant: "light",
+    variant: "darkSection",
     external: true
   },
   {
-    label: "Enviar mail",
+    label: "Mail",
     href: contact.email,
     icon: Mail,
-    variant: "secondary"
+    variant: "social"
   },
   {
     label: "LinkedIn",
     href: contact.linkedin,
     icon: ExternalLink,
-    variant: "secondary",
+    variant: "social",
     external: true
   },
   {
     label: "Instagram",
     href: contact.instagram,
     icon: AtSign,
-    variant: "secondary",
+    variant: "social",
     external: true
   },
   {
     label: "GitHub",
     href: contact.github,
     icon: ExternalLink,
-    variant: "secondary",
+    variant: "social",
     external: true
   }
 ];

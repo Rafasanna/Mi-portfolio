@@ -1,15 +1,16 @@
 import { Button } from "@/components/Button";
 import { VisualImage } from "@/components/VisualImage";
+import { ArrowRight, MessageCircle } from "lucide-react";
 import type { CSSProperties } from "react";
 
 const badges = [
   "React",
-  "Next.js",
   "Bases de datos",
+  "WhatsApp",
+  "Next.js",
   "Supabase",
   "Responsive design",
-  "Google Sheets",
-  "WhatsApp"
+  "Google Sheets"
 ];
 
 export function Hero() {
@@ -27,9 +28,13 @@ export function Hero() {
           catálogos y herramientas simples.
         </p>
         <div className="hero__actions">
-          <Button href="#proyectos">Ver proyectos</Button>
+          <Button href="#proyectos">
+            Ver proyectos
+            <ArrowRight aria-hidden="true" size={17} strokeWidth={1.9} />
+          </Button>
           <Button href="https://wa.me/549XXXXXXXXXX" variant="secondary" target="_blank" rel="noreferrer">
-            Escribirme por WhatsApp
+            <MessageCircle aria-hidden="true" size={17} strokeWidth={1.9} />
+            WhatsApp
           </Button>
         </div>
       </div>
