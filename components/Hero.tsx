@@ -6,11 +6,12 @@ import type { CSSProperties } from "react";
 const badges = [
   "React",
   "Bases de datos",
-  "WhatsApp",
+  "Integraciones",
   "Next.js",
-  "Supabase",
   "Responsive design",
-  "Google Sheets"
+  "Sistemas",
+  "Datos",
+  "Supabase"
 ];
 
 export function Hero() {

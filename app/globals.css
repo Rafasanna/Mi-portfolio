@@ -1472,8 +1472,14 @@ p {
 
   .hero__actions,
   .project-card__actions {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 10px;
+  }
+
+  .hero__actions {
+    margin-top: 26px;
   }
 
   .contact__actions {
@@ -1488,18 +1494,46 @@ p {
 
   .button {
     min-height: 46px;
-    padding: 0.78rem 1rem;
-    width: 100%;
+    padding: 0 1.22rem;
+    width: fit-content;
     font-size: 0.9rem;
   }
 
+  .button:active {
+    transform: scale(0.98);
+  }
+
+  .hero__actions .button--primary {
+    min-width: 190px;
+    max-width: 260px;
+    height: 46px;
+    box-shadow: 0 12px 28px rgba(117, 22, 46, 0.22);
+  }
+
+  .hero__actions .button--secondary {
+    min-width: 160px;
+    max-width: 230px;
+    height: 44px;
+    background: rgba(252, 250, 246, 0.82);
+  }
+
+  .contact__actions .button,
+  .project-card__actions .button {
+    width: 100%;
+  }
+
   .hero__visual {
+    display: flex;
+    width: 100%;
     min-height: auto;
-    margin-top: 8px;
+    justify-content: center;
+    margin-top: 22px;
   }
 
   .hero__visual > .image-placeholder,
   .hero__visual .image-placeholder {
+    width: min(82vw, 320px);
+    max-width: 320px;
     min-height: unset;
     height: auto;
     aspect-ratio: 4 / 5;
@@ -1507,7 +1541,7 @@ p {
   }
 
   .hero__visual .visual-image__img {
-    object-position: center top;
+    object-position: center 35%;
   }
 
   .about__media,
@@ -1521,17 +1555,22 @@ p {
 
   .floating-badges span {
     position: static;
-    min-height: 30px;
-    padding: 0.38rem 0.58rem;
+    min-height: 0;
+    padding: 8px 12px;
+    border-radius: 999px;
     font-size: 0.72rem;
+    line-height: 1;
+    white-space: nowrap;
   }
 
   .floating-badges {
     position: relative;
+    width: 100%;
+    justify-content: center;
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 14px;
+    gap: 7px;
+    margin-top: 12px;
   }
 
   .card-grid,
@@ -1599,7 +1638,21 @@ p {
   }
 
   .hero__actions {
-    margin-top: 24px;
+    margin-top: 22px;
+  }
+
+  .hero__actions .button--primary {
+    min-width: 180px;
+  }
+
+  .hero__actions .button--secondary {
+    min-width: 150px;
+  }
+
+  .hero__visual > .image-placeholder,
+  .hero__visual .image-placeholder {
+    width: min(78vw, 300px);
+    max-width: 300px;
   }
 
   .contact__actions {
