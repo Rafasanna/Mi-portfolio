@@ -8,7 +8,6 @@ import { PositioningSection } from "@/components/PositioningSection";
 import { ProcessSection } from "@/components/ProcessSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import { ServicesSection } from "@/components/ServicesSection";
 import { TechnicalProfileSection } from "@/components/TechnicalProfileSection";
 
 export default function Home() {
@@ -20,7 +19,6 @@ export default function Home() {
         <Hero />
         <Marquee />
         <PositioningSection />
-        <ServicesSection />
         <ProjectsSection />
         <TechnicalProfileSection />
         <ProcessSection />

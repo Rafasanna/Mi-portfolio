@@ -4,7 +4,6 @@ import { AtSign, ExternalLink, Mail } from "lucide-react";
 const links = [
   { label: "Sobre mí", href: "#sobre-mi" },
   { label: "Proyectos", href: "#proyectos" },
-  { label: "Servicios", href: "#servicios" },
   { label: "Contacto", href: "#contacto" }
 ];
 
