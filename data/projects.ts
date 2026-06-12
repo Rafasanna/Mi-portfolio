@@ -37,7 +37,7 @@ export const projects: Project[] = [
   },
   {
     title: "Xeneize Regalería",
-    type: "E-commerce con variantes y Mercado Pago",
+    type: "E-commerce",
     description:
       "E-commerce desarrollado para vender productos a todo el país, con catálogo administrable, variantes de producto, carrito de compra y pagos integrados con Mercado Pago.",
     problem:
@@ -62,7 +62,7 @@ export const projects: Project[] = [
   },
   {
     title: "Azul Sanna",
-    type: "Sitio profesional para terapeuta ocupacional",
+    type: "Sitio profesional",
     description:
       "Sitio web profesional para una Licenciada en Terapia Ocupacional, pensado para presentar su perfil, explicar qué es la Terapia Ocupacional, mostrar áreas de abordaje y facilitar el contacto y la solicitud de turnos por WhatsApp.",
     problem:
