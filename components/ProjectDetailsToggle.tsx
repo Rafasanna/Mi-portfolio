@@ -6,10 +6,10 @@ import { useState } from "react";
 type ProjectDetailsToggleProps = {
   problem: string;
   solution: string;
-  technologies: string[];
+  technologies?: string[];
 };
 
-export function ProjectDetailsToggle({ problem, solution, technologies }: ProjectDetailsToggleProps) {
+export function ProjectDetailsToggle({ problem, solution, technologies = [] }: ProjectDetailsToggleProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -37,14 +37,16 @@ export function ProjectDetailsToggle({ problem, solution, technologies }: Projec
           <span>Qué hice</span>
           <p>{solution}</p>
         </div>
-        <div>
-          <span>Tecnologías</span>
-          <div className="tags">
-            {technologies.map((tech) => (
-              <span key={tech}>{tech}</span>
-            ))}
+        {technologies && technologies.length > 0 && (
+          <div>
+            <span>Tecnologías</span>
+            <div className="tags">
+              {technologies.map((tech) => (
+                <span key={tech}>{tech}</span>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
