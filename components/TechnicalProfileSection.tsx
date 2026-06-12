@@ -1,7 +1,11 @@
+"use client";
+
+import { useState } from "react";
 import { stack, technicalCards } from "@/data/skills";
 import {
   BarChart3,
   Braces,
+  ChevronDown,
   Code2,
   Database,
   GitBranch,
@@ -43,8 +47,11 @@ const stackIcons: Record<string, LucideIcon> = {
 };
 
 export function TechnicalProfileSection() {
-  const featuredCard = technicalCards[0];
-  const otherCards = technicalCards.slice(1);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggleItem = (index: number) => {
+    setOpenIndex(prev => (prev === index ? null : index));
+  };
 
   return (
     <section className="technical section-shell" id="perfil-tecnico">
@@ -91,29 +98,36 @@ export function TechnicalProfileSection() {
 
       {/* Compact/Featured view for Mobile */}
       <div className="technical__mobile-view">
-        {featuredCard && (
-          <article className="technical-card technical-card--feature reveal">
-            <div className="technical-card__top">
-              <h3>{featuredCard.title}</h3>
-              {(() => {
-                const Icon = technicalIcons[featuredCard.title] ?? Code2;
-                return <Icon aria-hidden="true" size={24} strokeWidth={1.7} />;
-              })()}
-            </div>
-            <p>{featuredCard.text}</p>
-          </article>
-        )}
-
         <div className="technical__compact-list reveal">
-          {otherCards.map((card) => {
+          {technicalCards.map((card, index) => {
             const Icon = technicalIcons[card.title] ?? Code2;
+            const isOpen = openIndex === index;
             return (
               <div className="technical__compact-item" key={card.title}>
-                <div className="technical__compact-item-header">
-                  <Icon aria-hidden="true" size={18} strokeWidth={1.7} />
-                  <h4>{card.title}</h4>
+                <button
+                  className="technical__compact-item-header"
+                  onClick={() => toggleItem(index)}
+                  aria-expanded={isOpen}
+                >
+                  <div className="technical__compact-item-title-wrap">
+                    <Icon aria-hidden="true" size={18} strokeWidth={1.7} />
+                    <h4>{card.title}</h4>
+                  </div>
+                  <ChevronDown
+                    className={`technical__compact-item-chevron ${
+                      isOpen ? "technical__compact-item-chevron--open" : ""
+                    }`}
+                    size={18}
+                    strokeWidth={1.8}
+                  />
+                </button>
+                <div
+                  className={`technical__compact-item-content ${
+                    isOpen ? "technical__compact-item-content--open" : ""
+                  }`}
+                >
+                  <p>{card.text}</p>
                 </div>
-                <p>{card.text}</p>
               </div>
             );
           })}

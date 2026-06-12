@@ -1645,45 +1645,86 @@ p {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
     background: rgba(252, 250, 246, 0.62);
     border: 1px solid var(--line);
     border-radius: 12px;
-    padding: 20px;
+    padding: 8px 20px;
     box-shadow: 0 10px 30px rgba(58, 0, 12, 0.05);
   }
 
   .technical__compact-item {
     border-bottom: 1px solid var(--line);
-    padding-bottom: 16px;
+    padding: 14px 0;
   }
 
   .technical__compact-item:last-child {
     border-bottom: none;
-    padding-bottom: 0;
   }
 
   .technical__compact-item-header {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--burgundy-dark);
+    font-family: inherit;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .technical__compact-item-header:focus-visible {
+    outline: 2px solid var(--burgundy);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+
+  .technical__compact-item-title-wrap {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 6px;
-    color: var(--burgundy-dark);
   }
 
-  .technical__compact-item-header h4 {
+  .technical__compact-item-title-wrap h4 {
     margin: 0;
     font-family: var(--sans);
     font-weight: 700;
     font-size: 1.05rem;
   }
 
-  .technical__compact-item-header svg {
+  .technical__compact-item-title-wrap svg {
     color: var(--burgundy);
     flex-shrink: 0;
   }
 
-  .technical__compact-item p {
+  .technical__compact-item-chevron {
+    color: var(--burgundy);
+    flex-shrink: 0;
+    transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .technical__compact-item-chevron--open {
+    transform: rotate(180deg);
+  }
+
+  .technical__compact-item-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 200ms ease, margin-top 200ms ease;
+  }
+
+  .technical__compact-item-content--open {
+    max-height: 200px;
+    opacity: 1;
+    margin-top: 8px;
+  }
+
+  .technical__compact-item-content p {
     margin: 0;
     font-size: 0.9rem;
     line-height: 1.55;
