@@ -2,16 +2,16 @@ import type { CSSProperties } from "react";
 
 const differences = [
   {
+    title: "Asesoramiento desde cero",
+    text: "Si no sabés exactamente qué necesitás, te ayudo a ordenar la idea, definir prioridades y pensar una solución posible para tu negocio."
+  },
+  {
     title: "Diseño con intención",
     text: "Cada sección tiene un objetivo: guiar, informar, vender o facilitar una acción."
   },
   {
     title: "Mirada técnica",
-    text: "No pienso solo en lo visual, también en datos, estructuras, procesos y lógica."
-  },
-  {
-    title: "Asesoramiento desde cero",
-    text: "Si no sabés exactamente qué necesitás, te ayudo a ordenar la idea, definir prioridades y pensar una solución posible para tu negocio."
+    text: "No pienso solo en lo visual: también considero datos, estructuras, procesos y lógica."
   },
   {
     title: "Soluciones simples",
@@ -33,11 +33,19 @@ export function DifferenceSection() {
       <div className="difference__heading reveal">
         <p className="eyebrow">DIFERENCIAL</p>
         <h2>Por qué trabajar conmigo</h2>
-        <p>No solo desarrollo una web: te ayudo a pensarla, ordenarla y usarla.</p>
+        <p>No solo desarrollo una web: te ayudo a pensarla, ordenarla y convertirla en una herramienta útil.</p>
       </div>
       <div className="difference__grid">
         {differences.map((item, index) => (
-          <article className="difference-card reveal" key={item.title} style={{ "--i": index } as CSSProperties}>
+          <article
+            className={`difference-card ${
+              item.title === "Asesoramiento desde cero" || item.title === "Acompañamiento inicial"
+                ? "difference-card--featured"
+                : ""
+            } reveal`}
+            key={item.title}
+            style={{ "--i": index } as CSSProperties}
+          >
             <h3>{item.title}</h3>
             <p>{item.text}</p>
           </article>

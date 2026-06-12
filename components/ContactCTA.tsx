@@ -1,4 +1,3 @@
-import { Button } from "@/components/Button";
 import { AtSign, ExternalLink, Mail, MessageCircle } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -14,41 +13,29 @@ const contactActions: Array<{
   label: string;
   href: string;
   icon: LucideIcon;
-  variant: "darkSection" | "social";
   external?: boolean;
 }> = [
   {
-    label: "WhatsApp",
-    href: contact.whatsapp,
-    icon: MessageCircle,
-    variant: "darkSection",
-    external: true
-  },
-  {
     label: "Mail",
     href: contact.email,
-    icon: Mail,
-    variant: "social"
+    icon: Mail
   },
   {
     label: "LinkedIn",
     href: contact.linkedin,
     icon: ExternalLink,
-    variant: "social",
     external: true
   },
   {
     label: "Instagram",
     href: contact.instagram,
     icon: AtSign,
-    variant: "social",
     external: true
   },
   {
     label: "GitHub",
     href: contact.github,
     icon: ExternalLink,
-    variant: "social",
     external: true
   }
 ];
@@ -65,18 +52,25 @@ export function ContactCTA() {
           una forma más profesional. Escribime y lo vemos.
         </p>
         <div className="contact__actions">
-          {contactActions.map(({ label, href, icon: Icon, variant, external }) => (
-            <Button
-              href={href}
-              key={label}
-              variant={variant}
-              target={external ? "_blank" : undefined}
-              rel={external ? "noopener noreferrer" : undefined}
-            >
-              <Icon aria-hidden="true" size={17} strokeWidth={1.8} />
-              {label}
-            </Button>
-          ))}
+          <a className="contact__primary" href={contact.whatsapp} target="_blank" rel="noopener noreferrer">
+            <MessageCircle aria-hidden="true" size={18} strokeWidth={1.8} />
+            Escribirme por WhatsApp
+          </a>
+
+          <div className="contact__social-grid" aria-label="Links de contacto">
+            {contactActions.map(({ label, href, icon: Icon, external }) => (
+              <a
+                className="contact__social-card"
+                href={href}
+                key={label}
+                target={external ? "_blank" : undefined}
+                rel={external ? "noopener noreferrer" : undefined}
+              >
+                <Icon aria-hidden="true" size={17} strokeWidth={1.8} />
+                <span>{label}</span>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>

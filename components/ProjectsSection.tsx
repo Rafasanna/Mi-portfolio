@@ -1,4 +1,5 @@
 import { Button } from "@/components/Button";
+import { ProjectDetailsToggle } from "@/components/ProjectDetailsToggle";
 import { SectionIntro } from "@/components/SectionIntro";
 import { VisualImage } from "@/components/VisualImage";
 import { projects } from "@/data/projects";
@@ -57,20 +58,13 @@ export function ProjectsSection() {
                 ) : null}
                 <p>{project.description}</p>
 
-                <div className="project-details">
-                  <div>
-                    <span>Problema</span>
-                    <p>{project.problem}</p>
-                  </div>
-                  <div>
-                    <span>Qué hice</span>
-                    <p>{project.solution}</p>
-                  </div>
-                </div>
+                <ProjectDetailsToggle problem={project.problem} solution={project.solution} />
 
                 <div className="tags">
-                  {project.technologies.map((tech) => (
-                    <span key={tech}>{tech}</span>
+                  {project.technologies.map((tech, tagIndex) => (
+                    <span key={tech} className={tagIndex >= 5 ? "tag--mobile-hidden" : undefined}>
+                      {tech}
+                    </span>
                   ))}
                 </div>
 
@@ -81,11 +75,11 @@ export function ProjectsSection() {
                       rel="noopener noreferrer"
                       target="_blank"
                       variant={index % 2 === 0 ? "primary" : "secondary"}
-                  >
-                    Ver sitio
-                    <ExternalLink aria-hidden="true" size={15} strokeWidth={1.8} />
-                  </Button>
-                ) : (
+                    >
+                      Ver sitio
+                      <ExternalLink aria-hidden="true" size={15} strokeWidth={1.8} />
+                    </Button>
+                  ) : (
                     <span className="button button--secondary button--disabled">Próximamente</span>
                   )}
                 </div>

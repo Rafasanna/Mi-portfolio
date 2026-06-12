@@ -1,27 +1,27 @@
 export const technicalCards = [
   {
-    title: "Bases de datos relacionales",
-    text: "Conocimientos en modelado de datos, entidades, relaciones, normalización, consultas SQL y diseño de estructuras pensadas para organizar información de forma consistente."
+    title: "Analista de Sistemas",
+    text: "Mi formación me permite pensar un proyecto más allá de la interfaz: entender necesidades, ordenar información, analizar procesos y convertir una idea en una solución funcional."
   },
   {
-    title: "Bases de datos avanzadas",
-    text: "Trabajo con conceptos más profundos de bases de datos, diseño, optimización, integridad, organización de información y criterios para elegir estructuras adecuadas según el problema."
+    title: "Bases de datos",
+    text: "Modelado de datos, relaciones, SQL, normalización y estructuras pensadas para organizar información de forma consistente."
   },
   {
-    title: "NoSQL",
-    text: "Conocimientos sobre bases de datos no relacionales y estructuras flexibles, útiles para catálogos, usuarios, registros, reservas o información que no siempre encaja en modelos tradicionales."
-  },
-  {
-    title: "Probabilidad y estadística",
-    text: "Formación en análisis de datos, interpretación de información, métricas y pensamiento cuantitativo para comprender patrones y tomar mejores decisiones."
-  },
-  {
-    title: "Pensamiento de sistemas",
-    text: "Capacidad para analizar procesos, detectar necesidades, ordenar información y transformar una idea o problema en una solución digital clara y funcional."
+    title: "Datos y estadística",
+    text: "Conocimientos en probabilidad, estadística, métricas e interpretación de información para apoyar la toma de decisiones."
   },
   {
     title: "Desarrollo web",
-    text: "Construcción de interfaces responsive, componentes reutilizables, formularios, catálogos, carritos, integraciones y experiencias pensadas para usuarios reales."
+    text: "Construcción de interfaces responsive, catálogos, formularios, carritos, paneles simples e integraciones reales."
+  },
+  {
+    title: "Sistemas y procesos",
+    text: "Análisis de requerimientos, lógica funcional, flujos de usuario y mirada integral sobre cómo debería funcionar una solución."
+  },
+  {
+    title: "NoSQL y herramientas modernas",
+    text: "Uso de estructuras flexibles y herramientas como Supabase, Google Sheets o APIs según la necesidad del proyecto."
   }
 ];
 

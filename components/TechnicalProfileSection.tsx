@@ -1,4 +1,3 @@
-import { SectionIntro } from "@/components/SectionIntro";
 import { stack, technicalCards } from "@/data/skills";
 import {
   BarChart3,
@@ -10,7 +9,6 @@ import {
   Image,
   Network,
   Rows3,
-  ServerCog,
   Table2,
   TableProperties,
   Triangle,
@@ -20,12 +18,12 @@ import type { CSSProperties } from "react";
 import type { LucideIcon } from "lucide-react";
 
 const technicalIcons: Record<string, LucideIcon> = {
-  "Bases de datos relacionales": Database,
-  "Bases de datos avanzadas": ServerCog,
-  NoSQL: Rows3,
-  "Probabilidad y estadística": BarChart3,
-  "Pensamiento de sistemas": Workflow,
-  "Desarrollo web": Code2
+  "Analista de Sistemas": Workflow,
+  "Bases de datos": Database,
+  "Datos y estadística": BarChart3,
+  "Desarrollo web": Code2,
+  "Sistemas y procesos": GitBranch,
+  "NoSQL y herramientas modernas": Rows3
 };
 
 const stackIcons: Record<string, LucideIcon> = {
@@ -47,24 +45,42 @@ const stackIcons: Record<string, LucideIcon> = {
 export function TechnicalProfileSection() {
   return (
     <section className="technical section-shell" id="perfil-tecnico">
-      <SectionIntro
-        eyebrow="PERFIL TÉCNICO"
-        title="Más que diseño: lógica, datos y sistemas"
-        text="Mi formación en Sistemas me permite pensar cada proyecto más allá de lo visual."
-      />
+      <div className="technical__header reveal">
+        <div>
+          <p className="eyebrow">PERFIL TÉCNICO</p>
+          <span className="profile-badge">Analista de Sistemas</span>
+          <h2>Analista de Sistemas con mirada integral</h2>
+        </div>
+        <p>
+          Mi perfil combina desarrollo web, bases de datos, análisis de
+          información y pensamiento lógico para entender problemas, ordenar
+          procesos y construir soluciones digitales.
+        </p>
+      </div>
 
       <p className="technical__lead reveal">
-        No solo me interesa que una página se vea bien. Me importa que tenga una
-        estructura clara, datos ordenados, procesos simples y una lógica que
-        realmente acompañe el funcionamiento del negocio.
+        Además de crear páginas y herramientas para negocios, mi formación como
+        Analista de Sistemas me permite participar en proyectos desde una mirada
+        más amplia: comprender requerimientos, modelar datos, analizar procesos,
+        pensar estructuras y conectar lo visual con lo funcional.
       </p>
 
       <div className="technical__grid">
         {technicalCards.map((card, index) => {
           const Icon = technicalIcons[card.title] ?? Code2;
+          const variantClass =
+            index === 0
+              ? "technical-card--feature"
+              : index <= 3
+                ? "technical-card--area"
+                : "technical-card--compact";
 
           return (
-            <article className="technical-card reveal" key={card.title} style={{ "--i": index } as CSSProperties}>
+            <article
+              className={`technical-card ${variantClass} reveal`}
+              key={card.title}
+              style={{ "--i": index } as CSSProperties}
+            >
               <div className="technical-card__top">
                 <h3>{card.title}</h3>
                 <Icon aria-hidden="true" size={24} strokeWidth={1.7} />
