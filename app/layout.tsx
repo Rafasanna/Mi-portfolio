@@ -15,6 +15,11 @@ export const metadata: Metadata = {
     "React",
     "soluciones digitales"
   ],
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png"
+  },
   openGraph: {
     title: "Rafaela Sanna | Soluciones digitales con mirada de sistemas",
     description:

@@ -18,7 +18,7 @@ import type { CSSProperties } from "react";
 import type { LucideIcon } from "lucide-react";
 
 const technicalIcons: Record<string, LucideIcon> = {
-  "Analista de Sistemas": Workflow,
+  "Análisis y lógica funcional": Workflow,
   "Bases de datos": Database,
   "Datos y estadística": BarChart3,
   "Desarrollo web": Code2,
@@ -43,29 +43,27 @@ const stackIcons: Record<string, LucideIcon> = {
 };
 
 export function TechnicalProfileSection() {
+  const featuredCard = technicalCards[0];
+  const otherCards = technicalCards.slice(1);
+
   return (
     <section className="technical section-shell" id="perfil-tecnico">
       <div className="technical__header reveal">
         <div>
           <p className="eyebrow">PERFIL TÉCNICO</p>
-          <span className="profile-badge">Analista de Sistemas</span>
-          <h2>Analista de Sistemas con mirada integral</h2>
+          <h2>Perfil técnico integral</h2>
         </div>
         <p>
-          Mi perfil combina desarrollo web, bases de datos, análisis de
-          información y pensamiento lógico para entender problemas, ordenar
-          procesos y construir soluciones digitales.
+          Mi formación en Sistemas me permite pensar cada proyecto más allá de la interfaz: datos, procesos, lógica y funcionamiento real.
         </p>
       </div>
 
       <p className="technical__lead reveal">
-        Además de crear páginas y herramientas para negocios, mi formación como
-        Analista de Sistemas me permite participar en proyectos desde una mirada
-        más amplia: comprender requerimientos, modelar datos, analizar procesos,
-        pensar estructuras y conectar lo visual con lo funcional.
+        Además de crear páginas y herramientas para negocios, puedo aportar en proyectos que requieran análisis, modelado de información, bases de datos, desarrollo web y comprensión de requerimientos.
       </p>
 
-      <div className="technical__grid">
+      {/* Grid view for Desktop */}
+      <div className="technical__grid technical__grid--desktop">
         {technicalCards.map((card, index) => {
           const Icon = technicalIcons[card.title] ?? Code2;
           const variantClass =
@@ -89,6 +87,37 @@ export function TechnicalProfileSection() {
             </article>
           );
         })}
+      </div>
+
+      {/* Compact/Featured view for Mobile */}
+      <div className="technical__mobile-view">
+        {featuredCard && (
+          <article className="technical-card technical-card--feature reveal">
+            <div className="technical-card__top">
+              <h3>{featuredCard.title}</h3>
+              {(() => {
+                const Icon = technicalIcons[featuredCard.title] ?? Code2;
+                return <Icon aria-hidden="true" size={24} strokeWidth={1.7} />;
+              })()}
+            </div>
+            <p>{featuredCard.text}</p>
+          </article>
+        )}
+
+        <div className="technical__compact-list reveal">
+          {otherCards.map((card) => {
+            const Icon = technicalIcons[card.title] ?? Code2;
+            return (
+              <div className="technical__compact-item" key={card.title}>
+                <div className="technical__compact-item-header">
+                  <Icon aria-hidden="true" size={18} strokeWidth={1.7} />
+                  <h4>{card.title}</h4>
+                </div>
+                <p>{card.text}</p>
+              </div>
+            );
+          })}
+        </div>
       </div>
 
       <div className="stack-panel reveal">

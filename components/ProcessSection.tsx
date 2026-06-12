@@ -4,7 +4,7 @@ import type { CSSProperties } from "react";
 
 export function ProcessSection() {
   return (
-    <section className="process section-shell">
+    <section className="process section-shell" id="proceso">
       <SectionIntro
         eyebrow="PROCESO"
         title="Cómo trabajo"

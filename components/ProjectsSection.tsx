@@ -58,15 +58,13 @@ export function ProjectsSection() {
                 ) : null}
                 <p>{project.description}</p>
 
-                <ProjectDetailsToggle problem={project.problem} solution={project.solution} />
+                <ProjectDetailsToggle
+                  problem={project.problem}
+                  solution={project.solution}
+                  technologies={project.technologies}
+                />
 
-                <div className="tags">
-                  {project.technologies.map((tech, tagIndex) => (
-                    <span key={tech} className={tagIndex >= 5 ? "tag--mobile-hidden" : undefined}>
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+
 
                 <div className="project-card__actions">
                   {project.liveUrl ? (

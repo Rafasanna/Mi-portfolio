@@ -28,18 +28,24 @@ const differences = [
 ];
 
 export function DifferenceSection() {
+  const featuredTitles = ["Asesoramiento desde cero", "Acompañamiento inicial"];
+  const featuredItems = differences.filter(item => featuredTitles.includes(item.title));
+  const compactItems = differences.filter(item => !featuredTitles.includes(item.title));
+
   return (
-    <section className="difference section-shell">
+    <section className="difference section-shell" id="diferencial">
       <div className="difference__heading reveal">
         <p className="eyebrow">DIFERENCIAL</p>
         <h2>Por qué trabajar conmigo</h2>
         <p>No solo desarrollo una web: te ayudo a pensarla, ordenarla y convertirla en una herramienta útil.</p>
       </div>
-      <div className="difference__grid">
+
+      {/* Grid view for Desktop */}
+      <div className="difference__grid difference__grid--desktop">
         {differences.map((item, index) => (
           <article
             className={`difference-card ${
-              item.title === "Asesoramiento desde cero" || item.title === "Acompañamiento inicial"
+              featuredTitles.includes(item.title)
                 ? "difference-card--featured"
                 : ""
             } reveal`}
@@ -50,6 +56,31 @@ export function DifferenceSection() {
             <p>{item.text}</p>
           </article>
         ))}
+      </div>
+
+      {/* View for Mobile */}
+      <div className="difference__mobile-view">
+        <div className="difference__featured-stack">
+          {featuredItems.map((item, index) => (
+            <article
+              className="difference-card difference-card--featured reveal"
+              key={item.title}
+              style={{ "--i": index } as CSSProperties}
+            >
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="difference__compact-list reveal">
+          {compactItems.map((item) => (
+            <div className="difference__compact-item" key={item.title}>
+              <h4>{item.title}</h4>
+              <p>{item.text}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -11,7 +11,7 @@ export function Hero() {
         </p>
         <p className="hero__text">
           Soy Analista de Sistemas y estudiante avanzada de Licenciatura en
-          Sistemas. Combino desarrollo web, bases de datos, datos y lógica
+          Sistemas. Combino desarrollo web, bases de datos y lógica
           funcional para crear soluciones digitales claras.
         </p>
       </div>

@@ -1,7 +1,7 @@
 export const technicalCards = [
   {
-    title: "Analista de Sistemas",
-    text: "Mi formación me permite pensar un proyecto más allá de la interfaz: entender necesidades, ordenar información, analizar procesos y convertir una idea en una solución funcional."
+    title: "Análisis y lógica funcional",
+    text: "Me enfoco en entender necesidades, ordenar información, analizar procesos y convertir una idea en una solución funcional."
   },
   {
     title: "Bases de datos",
