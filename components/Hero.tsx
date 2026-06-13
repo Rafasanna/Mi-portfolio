@@ -7,11 +7,11 @@ export function Hero() {
         <p className="eyebrow">ANALISTA DE SISTEMAS</p>
         <h1>Rafaela Sanna</h1>
         <p className="hero__subtitle">
-          Creo soluciones digitales claras, funcionales y pensadas para negocios reales.
+         Analista de Sistemas y estudiante avanzada de Licenciatura en Sistemas.
         </p>
         <p className="hero__text">
-          Soy Analista de Sistemas y estudiante avanzada de Licenciatura en
-          Sistemas.
+          Hago webs y sistemas simples para negocios que necesitan algo 
+          real, útil y bien pensado.
         </p>
       </div>
 
