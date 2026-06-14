@@ -8,11 +8,13 @@ import { PositioningSection } from "@/components/PositioningSection";
 import { ProcessSection } from "@/components/ProcessSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { SplashScreen } from "@/components/SplashScreen";
 import { TechnicalProfileSection } from "@/components/TechnicalProfileSection";
 
 export default function Home() {
   return (
     <>
+      <SplashScreen />
       <ScrollReveal />
       <Header />
       <main>

@@ -1,50 +1,69 @@
 "use client";
 
 import { useState } from "react";
-import { stack, technicalCards } from "@/data/skills";
 import {
-  BarChart3,
-  Braces,
   ChevronDown,
   Code2,
   Database,
   GitBranch,
-  GitPullRequest,
-  Image,
-  Network,
-  Rows3,
-  Table2,
-  TableProperties,
-  Triangle,
+  Plug,
+  Server,
   Workflow
 } from "lucide-react";
 import type { CSSProperties } from "react";
 import type { LucideIcon } from "lucide-react";
 
-const technicalIcons: Record<string, LucideIcon> = {
-  "Análisis y lógica funcional": Workflow,
-  "Bases de datos": Database,
-  "Datos y estadística": BarChart3,
-  "Desarrollo web": Code2,
-  "Sistemas y procesos": GitBranch,
-  "NoSQL y herramientas modernas": Rows3
+type SkillCategory = {
+  title: string;
+  description: string;
+  skills: string[];
+  icon: LucideIcon;
 };
 
-const stackIcons: Record<string, LucideIcon> = {
-  React: Network,
-  "Next.js": Code2,
-  TypeScript: Braces,
-  SQL: Table2,
-  NoSQL: Rows3,
-  Supabase: Database,
-  "Google Sheets": TableProperties,
-  Cloudinary: Image,
-  Vercel: Triangle,
-  Git: GitBranch,
-  GitHub: GitPullRequest,
-  APIs: Workflow,
-  "Integración con WhatsApp": Braces
-};
+const skillCategories: SkillCategory[] = [
+  {
+    title: "Frontend",
+    description:
+      "Construyo interfaces claras, responsivas y pensadas para que el usuario pueda navegar sin complicarse.",
+    skills: ["React", "Vite", "JavaScript", "HTML", "CSS", "Responsive Design", "UI web"],
+    icon: Code2
+  },
+  {
+    title: "Backend y lógica",
+    description:
+      "Trabajo la lógica detrás de cada proyecto, conectando datos, formularios, APIs e integraciones necesarias.",
+    skills: ["Node.js", "Express", "APIs REST", "Integración con servicios externos"],
+    icon: Server
+  },
+  {
+    title: "Bases de datos y administración",
+    description:
+      "Uso herramientas simples y prácticas para que cada cliente pueda gestionar información sin depender del código.",
+    skills: ["Supabase", "MongoDB", "Google Sheets como panel simple de administración"],
+    icon: Database
+  },
+  {
+    title: "Herramientas",
+    description:
+      "Manejo herramientas de desarrollo, deploy y control de versiones para llevar los proyectos de forma ordenada.",
+    skills: ["Git", "GitHub", "Vercel", "Cloudinary", "Postman", "VS Code"],
+    icon: GitBranch
+  },
+  {
+    title: "Integraciones",
+    description:
+      "Conecto la web con herramientas reales de trabajo, como WhatsApp, Sheets, pagos o sistemas de reserva.",
+    skills: ["WhatsApp", "Google Sheets", "Mercado Pago", "Formularios", "Sistemas de turnos", "Catálogos digitales"],
+    icon: Plug
+  },
+  {
+    title: "Perfil técnico",
+    description:
+      "Mi formación en Sistemas me permite analizar requerimientos, ordenar ideas y convertirlas en soluciones funcionales.",
+    skills: ["Análisis de requerimientos", "Diseño de soluciones", "Documentación", "Lógica de negocio", "Testing básico", "Mejora de procesos"],
+    icon: Workflow
+  }
+];
 
 export function TechnicalProfileSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -58,93 +77,80 @@ export function TechnicalProfileSection() {
       <div className="technical__header reveal">
         <div>
           <p className="eyebrow">PERFIL TÉCNICO</p>
-          <h2>Perfil técnico integral</h2>
+          <h2>No solo diseño páginas: pienso cómo tienen que funcionar.</h2>
         </div>
         <p>
-          Mi formación en Sistemas me permite pensar cada proyecto más allá de la interfaz: datos, procesos, lógica y funcionamiento real.
+          Combino desarrollo web, herramientas prácticas e integración de procesos para crear soluciones claras, usables y fáciles de sostener.
         </p>
       </div>
 
       <p className="technical__lead reveal">
-        Además de crear páginas y herramientas para negocios, puedo aportar en proyectos que requieran análisis, modelado de información, bases de datos, desarrollo web y comprensión de requerimientos.
+        Organizo cada proyecto desde lo visual y desde la lógica: qué información necesita, cómo se administra, qué acciones debe facilitar y qué herramientas conviene conectar.
       </p>
 
-      {/* Grid view for Desktop */}
-      <div className="technical__grid technical__grid--desktop">
-        {technicalCards.map((card, index) => {
-          const Icon = technicalIcons[card.title] ?? Code2;
-          const variantClass =
-            index === 0
-              ? "technical-card--feature"
-              : index <= 3
-                ? "technical-card--area"
-                : "technical-card--compact";
-
+      <div className="skills-grid skills-grid--desktop">
+        {skillCategories.map((category, index) => {
+          const Icon = category.icon;
           return (
             <article
-              className={`technical-card ${variantClass} reveal`}
-              key={card.title}
+              className="skill-card reveal"
+              key={category.title}
               style={{ "--i": index } as CSSProperties}
             >
-              <div className="technical-card__top">
-                <h3>{card.title}</h3>
-                <Icon aria-hidden="true" size={24} strokeWidth={1.7} />
+              <div className="skill-card__top">
+                <div className="skill-card__icon">
+                  <Icon aria-hidden="true" size={21} strokeWidth={1.8} />
+                </div>
+                <h3>{category.title}</h3>
               </div>
-              <p>{card.text}</p>
+              <p>{category.description}</p>
+              <div className="skill-card__chips">
+                {category.skills.map((skill) => (
+                  <span className="skill-chip" key={skill}>{skill}</span>
+                ))}
+              </div>
             </article>
           );
         })}
       </div>
 
-      {/* Compact/Featured view for Mobile */}
-      <div className="technical__mobile-view">
-        <div className="technical__compact-list reveal">
-          {technicalCards.map((card, index) => {
-            const Icon = technicalIcons[card.title] ?? Code2;
+      <div className="skills-mobile">
+        <div className="skills-accordion reveal">
+          {skillCategories.map((category, index) => {
+            const Icon = category.icon;
             const isOpen = openIndex === index;
             return (
-              <div className="technical__compact-item" key={card.title}>
+              <div className="skills-accordion__item" key={category.title}>
                 <button
-                  className="technical__compact-item-header"
+                  className="skills-accordion__header"
                   onClick={() => toggleItem(index)}
                   aria-expanded={isOpen}
                 >
-                  <div className="technical__compact-item-title-wrap">
+                  <div className="skills-accordion__title">
                     <Icon aria-hidden="true" size={18} strokeWidth={1.7} />
-                    <h4>{card.title}</h4>
+                    <h4>{category.title}</h4>
                   </div>
                   <ChevronDown
-                    className={`technical__compact-item-chevron ${
-                      isOpen ? "technical__compact-item-chevron--open" : ""
+                    className={`skills-accordion__chevron ${
+                      isOpen ? "skills-accordion__chevron--open" : ""
                     }`}
                     size={18}
                     strokeWidth={1.8}
                   />
                 </button>
                 <div
-                  className={`technical__compact-item-content ${
-                    isOpen ? "technical__compact-item-content--open" : ""
+                  className={`skills-accordion__content ${
+                    isOpen ? "skills-accordion__content--open" : ""
                   }`}
                 >
-                  <p>{card.text}</p>
+                  <p>{category.description}</p>
+                  <div className="skill-card__chips">
+                    {category.skills.map((skill) => (
+                      <span className="skill-chip" key={skill}>{skill}</span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            );
-          })}
-        </div>
-      </div>
-
-      <div className="stack-panel reveal">
-        <p className="eyebrow">STACK Y HERRAMIENTAS</p>
-        <div className="tags tags--large">
-          {stack.map((item) => {
-            const Icon = stackIcons[item] ?? Code2;
-
-            return (
-              <span className="stack-chip" key={item}>
-                <Icon aria-hidden="true" size={14} strokeWidth={1.8} />
-                {item}
-              </span>
             );
           })}
         </div>

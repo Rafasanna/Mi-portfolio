@@ -57,8 +57,10 @@ const InstagramIcon = (props: any) => (
   </svg>
 );
 
+const whatsappMessage = "Hola Rafa! Quería consultarte por una web para mi negocio";
+
 const contact = {
-  whatsapp: "https://wa.me/549XXXXXXXXXX",
+  whatsapp: `https://wa.me/5493446608118?text=${encodeURIComponent(whatsappMessage)}`,
   email: "mailto:rafaelasanna1511@gmail.com",
   linkedin: "https://www.linkedin.com/in/rafaela-sanna-23a329371/",
   instagram: "https://www.instagram.com/rafaelasanna_/",
